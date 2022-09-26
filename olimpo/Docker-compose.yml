@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  selenium-olimpo:
+    build: .
+    container_name: ctn-olimpo
+    ports: 
+    - "8004:8004"
+    volumes:
+            - ./src/:/app/src
+    networks:
+      - default
