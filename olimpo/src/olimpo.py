@@ -1,11 +1,21 @@
 import pandas as pd
+from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-
 import time
 
+
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_prefs = {"profile.default_content_setting_values.notifications" : 2}
+chrome_options.add_experimental_option("prefs",chrome_prefs)
+#chrome_prefs["profile.default_content_settings"] = {"images": 2}
+
+"""
 options = webdriver.ChromeOptions()
 options.add_argument('--incognito')
 options.add_argument('--start-maximized')
@@ -15,9 +25,8 @@ options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--disable-notifications')
 prefs = {"profile.default_content_setting_values.notifications" : 2}
 options.add_experimental_option("prefs",prefs)
-
-driver = webdriver.Chrome('/home/<user>/chromedriver',service = Service(ChromeDriverManager().install()),
-                            options = options)
+"""
+driver = webdriver.Chrome(options = chrome_options)
 
 link = 'https://www.olimpo.bet/#home'
 driver.get(link)
