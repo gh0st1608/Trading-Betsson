@@ -1,11 +1,11 @@
 version: "3"
 
 services:
-  selenium-olimpo:
+  selenium-apuestatotal:
     build: .
-    container_name: ctn-olimpo
+    container_name: ctn-apuestatotal
     ports: 
-    - "8005:8005"
+    - "8004:8004"
     volumes:
             - ./src/:/app/src
     networks:
