@@ -26,7 +26,8 @@ options.add_argument('--disable-notifications')
 prefs = {"profile.default_content_setting_values.notifications" : 2}
 options.add_experimental_option("prefs",prefs)
 """
-driver = webdriver.Chrome(options = chrome_options)
+#driver = webdriver.Chrome(options = chrome_options)
+driver = webdriver.Chrome(service = Service(ChromeDriverManager().install()), options = chrome_options)
 
 link = 'https://www.olimpo.bet/#home'
 driver.get(link)
